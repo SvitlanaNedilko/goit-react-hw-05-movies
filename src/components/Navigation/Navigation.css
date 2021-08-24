@@ -1,0 +1,18 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: black;
+  font-size: 18px;
+}
+
+.activlink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #4040b6;
+  font-size: 18px;
+}
+/*# sourceMappingURL=Navigation.css.map */
