@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './FilmList.scss'
 import PropTypes from 'prop-types'
+import { BASE_URL } from '../../App'
 
 export default function FilmsList({ films }) {
   return (
@@ -8,7 +9,7 @@ export default function FilmsList({ films }) {
       {!!films.length &&
         films.map((film) => (
           <li key={film.id} className="FilmsList_Item">
-            <Link to={`/films/${film.id}`}>{film.title}</Link>
+            <Link to={`${BASE_URL}/films/${film.id}`}>{film.title}</Link>
           </li>
         ))}
     </ul>

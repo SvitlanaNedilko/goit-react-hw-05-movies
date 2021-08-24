@@ -4,6 +4,8 @@ import AppBar from './components/AppBar/AppBar'
 import Container from './components/Container/Container'
 import './App.scss'
 
+export const BASE_URL = '/goit-react-hw-05-movies'
+
 const HomeView = lazy(() =>
   import('./views/homeView/homeView' /* webpackChunkName: "HomeView" */)
 )
@@ -30,13 +32,13 @@ export default function App() {
       <AppBar />
       <Suspense fallback={<h2>Загружаем...</h2>}>
         <Switch>
-          <Route path="/" exact>
+          <Route path={`${BASE_URL}/`} exact>
             <HomeView />
           </Route>
-          <Route path="/films" exact>
+          <Route path={`${BASE_URL}/films`} exact>
             <SearchMovies />
           </Route>
-          <Route path="/films/:filmId">
+          <Route path={`${BASE_URL}/films/:filmId`}>
             <MovieDetailsPage />
           </Route>
           <Route>
