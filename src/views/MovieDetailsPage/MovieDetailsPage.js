@@ -5,15 +5,17 @@ import {
   NavLink,
   Route,
   useHistory,
+  useLocation,
 } from 'react-router-dom'
-import { getInformationFilm } from '../../components/filmsapi/FilmsApi'
+import { BASE_URL } from '../../App'
+import { getInformationFilm } from '../../services/filmsapi/FilmsApi'
 import './MovieDetailsPage.scss'
 
 const CastView = lazy(() =>
   import('../castView/castView' /* webpackChunkName: "CastView" */)
 )
 const FilmReview = lazy(() =>
-  import('..//Reviews/reviews' /* webpackChunkName: "FilmReview" */)
+  import('../Reviews/reviews' /* webpackChunkName: "FilmReview" */)
 )
 
 export default function MovieDetailsPage() {
@@ -21,6 +23,7 @@ export default function MovieDetailsPage() {
   const [film, setFilm] = useState([])
   const { filmId } = useParams()
   const history = useHistory()
+  const location = useLocation()
 
   useEffect(() => {
     getInformationFilm(filmId).then((response) => {
@@ -28,14 +31,13 @@ export default function MovieDetailsPage() {
     })
   }, [filmId])
 
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? `${BASE_URL}/`)
+  }
+
   return (
     <div>
-      <button
-        onClick={() => {
-          history.goBack()
-        }}
-        className="ButtonBack"
-      >
+      <button type="button" onClick={onGoBack} className="ButtonBack">
         Back
       </button>
       <div className="FilmInformContainer">

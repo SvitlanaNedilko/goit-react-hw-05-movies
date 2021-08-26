@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import AppBar from './components/AppBar/AppBar'
 import Container from './components/Container/Container'
 import './App.scss'
@@ -15,11 +15,7 @@ const SearchMovies = lazy(() =>
     /* webpackChunkName: "SearchMovies" */
   )
 )
-const NotFoundPage = lazy(() =>
-  import(
-    './views/notFoundPages/NotFoundPages' /* webpackChunkName: "NotFoundPage" */
-  )
-)
+
 const MovieDetailsPage = lazy(() =>
   import(
     './views/MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage" */
@@ -41,9 +37,7 @@ export default function App() {
           <Route path={`${BASE_URL}/films/:filmId`}>
             <MovieDetailsPage />
           </Route>
-          <Route>
-            <NotFoundPage />
-          </Route>
+          <Redirect to={`${BASE_URL}/`} />
         </Switch>
       </Suspense>
     </Container>

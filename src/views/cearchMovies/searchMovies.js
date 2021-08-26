@@ -1,5 +1,5 @@
 import { useHistory, useLocation } from 'react-router-dom'
-import { getSearchFilm } from '../../components/filmsapi/FilmsApi'
+import { getSearchFilm } from '../../services/filmsapi/FilmsApi'
 import React, { useState, useEffect } from 'react'
 import FilmsList from '../../components/FilmsList/FilmsList'
 import './searchMovies.scss'
@@ -48,7 +48,7 @@ export default function SearchMovies() {
       </form>
 
       <div>
-        <FilmsList films={filmsList} />
+        <FilmsList films={filmsList} location={location} />
       </div>
     </>
   )

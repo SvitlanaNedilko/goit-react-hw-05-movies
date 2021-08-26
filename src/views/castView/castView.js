@@ -1,4 +1,4 @@
-import { getInformationCast } from '../../components/filmsapi/FilmsApi'
+import { getInformationCast } from '../../services/filmsapi/FilmsApi'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './castView.scss'

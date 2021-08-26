@@ -1,4 +1,4 @@
-import { getFilmReview } from '../../components/filmsapi/FilmsApi'
+import { getFilmReview } from '../../services/filmsapi/FilmsApi'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import EmptyPlaceholder from '../../components/EmptyPlaceholder/EmptyPLaceholder'
